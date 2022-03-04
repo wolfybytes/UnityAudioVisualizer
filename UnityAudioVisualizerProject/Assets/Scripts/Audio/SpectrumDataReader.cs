@@ -16,7 +16,7 @@ public class SpectrumDataReader : MonoBehaviour
 
     private void Start()
     {
-        m_audioSpectrum = new float[256];
+        m_audioSpectrum = new float[128];
     }
 
     private void Update()

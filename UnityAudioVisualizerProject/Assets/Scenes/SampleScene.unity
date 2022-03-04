@@ -2647,7 +2647,7 @@ MonoBehaviour:
   bias: 1
   timeStep: 0.15
   timeToBeat: 0.05
-  restSmoothTime: 2
+  restLerpTime: 2
   beatScale: {x: 1, y: 10, z: 1}
   restScale: {x: 1, y: 1, z: 1}
 --- !u!114 &1480236373
