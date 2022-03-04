@@ -19,8 +19,7 @@ public class CameraOrbit : MonoBehaviour
     public bool CameraDisabled = false;
 
 
-    // Use this for initialization
-    void Start() {
+    private void Start() {
         this._XForm_Camera = this.transform;
         this._XForm_Parent = this.transform.parent;
 
@@ -29,7 +28,7 @@ public class CameraOrbit : MonoBehaviour
     }
 
 
-    void LateUpdate() {
+    private void LateUpdate() {
         if (Input.GetMouseButton(1))
             CameraDisabled = false;
         else
