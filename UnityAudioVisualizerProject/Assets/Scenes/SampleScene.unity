@@ -286,7 +286,7 @@ Transform:
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 22, y: 0, z: 0}
 --- !u!1 &78137293
 GameObject:
@@ -392,8 +392,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: fccabdc97c391184d81da164bad02562, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -812,8 +812,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: fccabdc97c391184d81da164bad02562, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -835,11 +835,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1068281056}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 075c7b8c32e99bd41b1df76c48e16ac1, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 075c7b8c32e99bd41b1df76c48e16ac1, type: 3}
       propertyPath: m_LocalScale.x
@@ -871,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 075c7b8c32e99bd41b1df76c48e16ac1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 075c7b8c32e99bd41b1df76c48e16ac1, type: 3}
       propertyPath: m_LocalRotation.y
@@ -879,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 075c7b8c32e99bd41b1df76c48e16ac1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 075c7b8c32e99bd41b1df76c48e16ac1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2468,7 +2468,7 @@ RectTransform:
   m_Children:
   - {fileID: 1997517001}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2634,7 +2634,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &950252176
 GameObject:
@@ -3672,8 +3672,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: fccabdc97c391184d81da164bad02562, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3864,7 +3864,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1544082090}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3962,7 +3963,7 @@ RectTransform:
   m_Children:
   - {fileID: 1819782999}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3981,12 +3982,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61b6c4123b03dd418a8514112aa543a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1068281055}
   buttons:
   - {fileID: 149776875}
   - {fileID: 994825959}
   - {fileID: 78137295}
   - {fileID: 1988346561}
+  selectionImages:
+  - {fileID: 149776876}
+  - {fileID: 994825960}
+  - {fileID: 78137296}
 --- !u!1 &1154049587
 GameObject:
   m_ObjectHideFlags: 0
@@ -4018,7 +4022,7 @@ Transform:
   - {fileID: 1703765481}
   - {fileID: 950252181}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1227400066
 GameObject:
@@ -4077,7 +4081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 464be15b6bd06044f9a2d61b6b5df86f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28832175cf2c6c94084f9b7e0d4b3ff4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4959,6 +4963,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a4935f36a9a97246b6f71568ad8d795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1544082090 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 075c7b8c32e99bd41b1df76c48e16ac1, type: 3}
+  m_PrefabInstance: {fileID: 192579348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1544082092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4973,7 +4982,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationStrengthMod: 0.02
   scaleStrengthMod: 0.001
-  selectedTool: 0
+  isDragging: 0
+  selectedTool: 3
 --- !u!135 &1544082093
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5791,7 +5801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 464be15b6bd06044f9a2d61b6b5df86f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 272cf7b97e9c32c41a65458cd2669c07, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5866,7 +5876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d06c3aca502e0054a89a55386939e75a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78c97e6f84763a84f8e93fdb4eff93b1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6270,7 +6280,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 464be15b6bd06044f9a2d61b6b5df86f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8e09c82263bde64abb4561c01488174, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6474,5 +6484,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
