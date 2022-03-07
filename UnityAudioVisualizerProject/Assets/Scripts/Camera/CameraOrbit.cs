@@ -28,12 +28,16 @@ public class CameraOrbit : MonoBehaviour
     }
 
 
-    private void LateUpdate() {
-        if (Input.GetMouseButton(1))
+    private void Update()
+    {
+        if (Input.GetMouseButton(0) && !SceneVisualsController.instance.current.isDragging) {
             CameraDisabled = false;
-        else
+        } else {
             CameraDisabled = true;
+        }
+    }
 
+    private void LateUpdate() {
         if (!CameraDisabled)
         {
             //Rotation of the Camera based on Mouse Coordinates
