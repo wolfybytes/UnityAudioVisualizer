@@ -64,7 +64,7 @@ public class CameraOrbit : MonoBehaviour
             this._CameraDistance += ScrollAmount * -1f;
 
             this._CameraDistance = Mathf.Clamp(this._CameraDistance, 1.5f, 100f);
-        }  
+        }
 
         //Actual Camera Rig Transformations
         QT = Quaternion.Euler(_LocalRotation.y, _LocalRotation.x, 0);

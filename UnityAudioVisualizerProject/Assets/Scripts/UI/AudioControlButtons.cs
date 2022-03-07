@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AudioControlButtons : MonoBehaviour
 {
     private AudioSource source;
     private Image playButtonImage;
-    
+
+    public TextMeshProUGUI trackTitle;
     public Sprite[] icons;
     public Button[] buttons;
 
@@ -28,11 +30,13 @@ public class AudioControlButtons : MonoBehaviour
             playButtonImage.sprite = icons[1];
         else
             playButtonImage.sprite = icons[0];
+
+        UpdateTrackTitle();
     }
 
     public void Rewind()
     {
-
+        UpdateTrackTitle();
     }
 
     public void PlayPause()
@@ -44,10 +48,17 @@ public class AudioControlButtons : MonoBehaviour
             source.Play();
             playButtonImage.sprite = icons[1];
         }
+
+        UpdateTrackTitle();
     }
 
     public void Skip()
     {
+        UpdateTrackTitle();
+    }
 
+    public void UpdateTrackTitle()
+    {
+        trackTitle.text = source.clip.name;
     }
 }
