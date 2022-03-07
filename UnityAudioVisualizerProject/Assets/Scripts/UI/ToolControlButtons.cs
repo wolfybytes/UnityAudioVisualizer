@@ -28,22 +28,32 @@ public class ToolControlButtons : MonoBehaviour
 
     public void UseTransform()
     {
-        SceneVisualsController.instance.SetCurrentTool(0);
+        if (SceneVisualsController.instance.current.selectedTool != ObjectTools.ToolSelection.Transform)
+            SceneVisualsController.instance.SetCurrentTool(0);
+        else
+            SceneVisualsController.instance.SetCurrentTool(3);
     }
 
     public void UseRotation()
     {
-        SceneVisualsController.instance.SetCurrentTool(1);
+        if (SceneVisualsController.instance.current.selectedTool != ObjectTools.ToolSelection.Rotate)
+            SceneVisualsController.instance.SetCurrentTool(1);
+        else
+            SceneVisualsController.instance.SetCurrentTool(3);
     }
 
     public void UseScale()
     {
-        SceneVisualsController.instance.SetCurrentTool(2);
+        if (SceneVisualsController.instance.current.selectedTool != ObjectTools.ToolSelection.Scale)
+            SceneVisualsController.instance.SetCurrentTool(2);
+        else
+            SceneVisualsController.instance.SetCurrentTool(3);
     }
 
     public void ResetAll()
     {
         SceneVisualsController.instance.current.ResetModel();
+        SceneVisualsController.instance.SetCurrentTool(3);
     }
 
     public void UpdateSelectionImages(int newSelection)
