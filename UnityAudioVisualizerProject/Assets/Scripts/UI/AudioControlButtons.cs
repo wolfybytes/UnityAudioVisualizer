@@ -35,6 +35,7 @@ public class AudioControlButtons : MonoBehaviour
             playButtonImage.sprite = icons[0];
 
         AutoPlaylistOrganizer.instance.onUpdateAudioTrack += UpdateTrackTitle;
+        UpdateTrackTitle(AutoPlaylistOrganizer.instance.currentTrackIndex);
     }
 
     public void Rewind()

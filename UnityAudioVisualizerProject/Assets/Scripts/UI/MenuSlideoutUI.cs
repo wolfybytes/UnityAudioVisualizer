@@ -12,10 +12,15 @@ public class MenuSlideoutUI : MonoBehaviour
 
     public Vector3 closedPostion;
     public Vector3 openPosition;
+    public Vector3 hiddenPosition;
     public float transitionTime = .25f;
 
     private float timer = 9;
     private float percentage = 0;
+
+    public delegate void OnIntUpdate(int index);
+    public OnIntUpdate onOpenSlideout;
+    /*[HideInInspector] */public int slideoutIndex = 0;
 
     public void Start()
     {
@@ -52,5 +57,7 @@ public class MenuSlideoutUI : MonoBehaviour
         percentage = 0f;
         timer = 0f;
         completedTransition = false;
+
+        onOpenSlideout?.Invoke(slideoutIndex);
     }
 }
