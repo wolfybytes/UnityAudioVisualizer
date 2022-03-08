@@ -17,12 +17,15 @@ public class AudioControlButtons : MonoBehaviour
 
         buttons[0].onClick.AddListener(delegate {
             Rewind();
+            AutoPlaylistOrganizer.instance.Rewind();
         });
         buttons[1].onClick.AddListener(delegate {
-            PlayPause();
+            AutoPlaylistOrganizer.instance.PlayPause();
+            PlayPauseUpdateIcons();
         });
         buttons[2].onClick.AddListener(delegate {
             Skip();
+            AutoPlaylistOrganizer.instance.Skip();
         });
 
         playButtonImage = buttons[1].image;
@@ -31,34 +34,31 @@ public class AudioControlButtons : MonoBehaviour
         else
             playButtonImage.sprite = icons[0];
 
-        UpdateTrackTitle();
+        AutoPlaylistOrganizer.instance.onUpdateAudioTrack += UpdateTrackTitle;
     }
 
     public void Rewind()
     {
-        UpdateTrackTitle();
+        
     }
 
-    public void PlayPause()
+    public void PlayPauseUpdateIcons()
     {
         if (source.isPlaying) {
-            source.Pause();
             playButtonImage.sprite = icons[0];
         } else {
-            source.Play();
             playButtonImage.sprite = icons[1];
         }
 
-        UpdateTrackTitle();
     }
 
     public void Skip()
     {
-        UpdateTrackTitle();
+        
     }
 
-    public void UpdateTrackTitle()
+    public void UpdateTrackTitle(int index)
     {
-        trackTitle.text = source.clip.name;
+        trackTitle.text = AutoPlaylistOrganizer.instance.GetCurrentAudioTrack().name;
     }
 }
