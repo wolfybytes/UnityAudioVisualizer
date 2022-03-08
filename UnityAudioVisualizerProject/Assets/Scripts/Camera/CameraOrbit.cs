@@ -15,8 +15,19 @@ public class CameraOrbit : MonoBehaviour
     public float ScrollSensitvity = 2f;
     public float OrbitDampening = 10f;
     public float ScrollDampening = 6f;
+    public float zoomSensitivity = 2f;
+    public float panSensitivity = 2f;
 
     public bool CameraDisabled = false;
+
+    public enum ControlType
+    {
+        Pan,
+        Rotation,
+        Zoom,
+        None
+    };
+    public ControlType controlType = ControlType.Rotation;
 
 
     private void Start() {
@@ -43,14 +54,23 @@ public class CameraOrbit : MonoBehaviour
             //Rotation of the Camera based on Mouse Coordinates
             if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
             {
-                _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
-                _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
+                if (controlType == ControlType.Pan) {
 
-                //Clamp the y Rotation to horizon and not flipping over at the top
-                if (_LocalRotation.y < 0f)
-                    _LocalRotation.y = 0f;
-                else if (_LocalRotation.y > 90f)
-                    _LocalRotation.y = 90f;
+                } else if (controlType == ControlType.Rotation) {
+                    _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
+                    _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
+
+                    //Clamp the y Rotation to horizon and not flipping over at the top
+                    if (_LocalRotation.y < 0f)
+                        _LocalRotation.y = 0f;
+                    else if (_LocalRotation.y > 90f)
+                        _LocalRotation.y = 90f;
+                } else if (controlType == ControlType.Zoom) {
+                    float ScrollAmount = Input.GetAxis("Mouse Y") * zoomSensitivity;
+                    ScrollAmount *= (this._CameraDistance * 0.3f);
+                    this._CameraDistance += ScrollAmount * -1f;
+                    this._CameraDistance = Mathf.Clamp(this._CameraDistance, 1.5f, 100f);
+                }
             }
         }
 

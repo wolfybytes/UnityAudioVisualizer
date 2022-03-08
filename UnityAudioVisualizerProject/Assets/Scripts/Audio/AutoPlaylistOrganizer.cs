@@ -31,7 +31,7 @@ public class AutoPlaylistOrganizer : MonoBehaviour
 
     public void Rewind()
     {
-        int nextIndex = (currentTrackIndex - 1 == 0) ? tracks.Length - 1 : currentTrackIndex - 1;
+        int nextIndex = (currentTrackIndex - 1 == -1) ? tracks.Length - 1 : currentTrackIndex - 1;
         UpdateAudioTrack(nextIndex);
     }
 
@@ -53,6 +53,7 @@ public class AutoPlaylistOrganizer : MonoBehaviour
     public void UpdateAudioTrack(int index)
     {
         currentTrackIndex = index;
+        source.clip = tracks[currentTrackIndex] as AudioClip;
         source.Play();
         onUpdateAudioTrack?.Invoke(index);
     }
