@@ -1009,9 +1009,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fcafeb21890b97241b248f72a9b9e29f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db8a902580cd04649aa4180896e9eefb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -7905,9 +7905,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fcafeb21890b97241b248f72a9b9e29f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db290c2c332bbf94f9002c572a1d1121, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8836,6 +8836,7 @@ GameObject:
   - component: {fileID: 1855412357}
   - component: {fileID: 1855412356}
   - component: {fileID: 1855412355}
+  - component: {fileID: 1855412359}
   m_Layer: 5
   m_Name: CameraSelectionUI
   m_TagString: Untagged
@@ -8945,6 +8946,27 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1855412359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855412353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02a7667edaeabc84fb923e31d3fdb44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1981989253}
+  - {fileID: 139280677}
+  - {fileID: 681473999}
+  - {fileID: 2108306830}
+  selectionImages:
+  - {fileID: 1981989254}
+  - {fileID: 139280678}
+  - {fileID: 681474000}
 --- !u!1 &1878498757
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class CameraControlButtons : MonoBehaviour
 {
+    private CameraOrbit orbit;
     private Color selectedColor;
 
     public Button[] buttons;
@@ -10,7 +11,8 @@ public class CameraControlButtons : MonoBehaviour
 
     private void Start()
     {
-        SceneVisualsController.instance.onToolSelectionUpdate += UpdateSelectionImages;
+        orbit = Camera.main.GetComponent<CameraOrbit>();
+        orbit.onModeSelectionUpdate += UpdateSelectionImages;
 
         buttons[0].onClick.AddListener(delegate {
             UsePan();
@@ -28,32 +30,31 @@ public class CameraControlButtons : MonoBehaviour
 
     public void UsePan()
     {
-        if (SceneVisualsController.instance.current.selectedTool != ObjectTools.ToolSelection.Transform)
-            SceneVisualsController.instance.SetCurrentTool(0);
+        if (orbit.controlType != CameraOrbit.ControlType.Pan)
+            orbit.SetCurrentMode(0);
         else
-            SceneVisualsController.instance.SetCurrentTool(3);
+            orbit.SetCurrentMode(3);
     }
 
     public void UseRotation()
     {
-        if (SceneVisualsController.instance.current.selectedTool != ObjectTools.ToolSelection.Rotate)
-            SceneVisualsController.instance.SetCurrentTool(1);
+        if (orbit.controlType != CameraOrbit.ControlType.Pan)
+            orbit.SetCurrentMode(1);
         else
-            SceneVisualsController.instance.SetCurrentTool(3);
+            orbit.SetCurrentMode(3);
     }
 
     public void UseZoom()
     {
-        if (SceneVisualsController.instance.current.selectedTool != ObjectTools.ToolSelection.Scale)
-            SceneVisualsController.instance.SetCurrentTool(2);
+        if (orbit.controlType != CameraOrbit.ControlType.Pan)
+            orbit.SetCurrentMode(2);
         else
-            SceneVisualsController.instance.SetCurrentTool(3);
+            orbit.SetCurrentMode(3);
     }
 
     public void ResetAll()
     {
-        SceneVisualsController.instance.current.ResetModel();
-        SceneVisualsController.instance.SetCurrentTool(3);
+        orbit.ResetCamera();
     }
 
     public void UpdateSelectionImages(int newSelection)

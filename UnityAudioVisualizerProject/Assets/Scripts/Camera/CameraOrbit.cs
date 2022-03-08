@@ -5,6 +5,9 @@ public class CameraOrbit : MonoBehaviour
 {
     private Quaternion QT;
 
+    private float startingDistance;
+    private Vector2 startingRotation;
+
     protected Transform _XForm_Camera;
     protected Transform _XForm_Parent;
 
@@ -19,6 +22,9 @@ public class CameraOrbit : MonoBehaviour
     public float panSensitivity = 2f;
 
     public bool CameraDisabled = false;
+
+    public delegate void OnModeSelectionUpdate(int mode);
+    public OnModeSelectionUpdate onModeSelectionUpdate;
 
     public enum ControlType
     {
@@ -36,6 +42,9 @@ public class CameraOrbit : MonoBehaviour
 
         _LocalRotation.x = this._XForm_Parent.eulerAngles.y;
         _LocalRotation.y = this._XForm_Parent.eulerAngles.x;
+
+        startingDistance = _CameraDistance;
+        startingRotation = new Vector2(_LocalRotation.x, _LocalRotation.y);
     }
 
 
@@ -94,5 +103,19 @@ public class CameraOrbit : MonoBehaviour
         {
             this._XForm_Camera.localPosition = new Vector3(0f, 0f, Mathf.Lerp(this._XForm_Camera.localPosition.z, this._CameraDistance * -1f, Time.deltaTime * ScrollDampening));
         }
+    }
+
+    public void ResetCamera()
+    {
+        _LocalRotation.x = startingRotation.x;
+        _LocalRotation.y = startingRotation.y;
+        _CameraDistance = startingDistance;
+    }
+
+    public void SetCurrentMode(int mode)
+    {
+        controlType = (ControlType)mode;
+
+        onModeSelectionUpdate?.Invoke(mode);
     }
 }
