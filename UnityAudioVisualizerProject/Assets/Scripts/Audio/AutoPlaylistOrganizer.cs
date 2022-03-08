@@ -9,7 +9,7 @@ public class AutoPlaylistOrganizer : MonoBehaviour
 
     private AudioSource source;
 
-    public AudioClip[] tracks;
+    public Object[] tracks;
     public int currentTrackIndex = 0;
 
     public delegate void OnUpdateIndex(int index);
@@ -23,8 +23,7 @@ public class AutoPlaylistOrganizer : MonoBehaviour
             Destroy(this);
 
 
-        tracks = new AudioClip[1];
-        tracks[0] = Resources.Load<AudioClip>("Hi I'm Case & Rover Red - The Green Blues - 04 We'd Joke");
+        tracks = Resources.LoadAll("Tracks", typeof(AudioClip));
         source = GetComponent<AudioSource>();
         
         UpdateAudioTrack(0);
@@ -60,6 +59,6 @@ public class AutoPlaylistOrganizer : MonoBehaviour
 
     public AudioClip GetCurrentAudioTrack()
     {
-        return tracks[currentTrackIndex];
+        return tracks[currentTrackIndex] as AudioClip;
     }
 }
