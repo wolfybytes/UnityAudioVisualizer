@@ -15,41 +15,32 @@ public class CameraControlButtons : MonoBehaviour
         orbit.onModeSelectionUpdate += UpdateSelectionImages;
 
         buttons[0].onClick.AddListener(delegate {
-            UsePan();
-        });
-        buttons[1].onClick.AddListener(delegate {
             UseRotation();
         });
-        buttons[2].onClick.AddListener(delegate {
+        buttons[1].onClick.AddListener(delegate {
             UseZoom();
         });
-        buttons[3].onClick.AddListener(delegate {
+        buttons[2].onClick.AddListener(delegate {
             ResetAll();
         });
-    }
 
-    public void UsePan()
-    {
-        if (orbit.controlType != CameraOrbit.ControlType.Pan)
-            orbit.SetCurrentMode(0);
-        else
-            orbit.SetCurrentMode(3);
+        orbit.SetCurrentMode(1);
     }
 
     public void UseRotation()
     {
-        if (orbit.controlType != CameraOrbit.ControlType.Pan)
-            orbit.SetCurrentMode(1);
+        if (orbit.controlType != CameraOrbit.ControlType.Rotation)
+            orbit.SetCurrentMode(0);
         else
-            orbit.SetCurrentMode(3);
+            orbit.SetCurrentMode(2);
     }
 
     public void UseZoom()
     {
-        if (orbit.controlType != CameraOrbit.ControlType.Pan)
-            orbit.SetCurrentMode(2);
+        if (orbit.controlType != CameraOrbit.ControlType.Zoom)
+            orbit.SetCurrentMode(1);
         else
-            orbit.SetCurrentMode(3);
+            orbit.SetCurrentMode(2);
     }
 
     public void ResetAll()

@@ -550,7 +550,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26794
+  m_Name: pb_Mesh87170
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -741,11 +741,11 @@ RectTransform:
   - {fileID: 1763200057}
   - {fileID: 1445921184}
   m_Father: {fileID: 605359923}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 39, y: -39}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &139280677
@@ -1830,7 +1830,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 78, y: 300}
+  m_SizeDelta: {x: 78, y: 230}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &221276745
 MonoBehaviour:
@@ -1847,7 +1847,9 @@ MonoBehaviour:
   isOpen: 0
   closedPostion: {x: -78, y: 0, z: 0}
   openPosition: {x: 0, y: 0, z: 0}
+  hiddenPosition: {x: -156, y: 0, z: 0}
   transitionTime: 0.025
+  slideoutIndex: 0
 --- !u!114 &221276746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2654,10 +2656,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1981989252}
   - {fileID: 139280676}
   - {fileID: 681473998}
   - {fileID: 2108306829}
+  - {fileID: 1981989252}
   m_Father: {fileID: 221276744}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2673,7 +2675,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605359922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
@@ -2991,11 +2993,11 @@ RectTransform:
   - {fileID: 1460727510}
   - {fileID: 2071986052}
   m_Father: {fileID: 605359923}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 39, y: -112}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681473999
@@ -4889,8 +4891,8 @@ MonoBehaviour:
   OrbitDampening: 10
   ScrollDampening: 6
   zoomSensitivity: 2
-  panSensitivity: 2
   CameraDisabled: 0
+  trackingTarget: {fileID: 1544082090}
   controlType: 1
 --- !u!1 &994825957
 GameObject:
@@ -5712,6 +5714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1229007800}
+  - component: {fileID: 1229007801}
   m_Layer: 0
   m_Name: _UserInterface
   m_TagString: Untagged
@@ -5737,6 +5740,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1229007801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229007799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1738b40a88134924b9fba4924f008430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1241685993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8835,7 +8850,6 @@ GameObject:
   - component: {fileID: 1855412358}
   - component: {fileID: 1855412357}
   - component: {fileID: 1855412356}
-  - component: {fileID: 1855412355}
   - component: {fileID: 1855412359}
   m_Layer: 5
   m_Name: CameraSelectionUI
@@ -8864,27 +8878,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1855412355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855412353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61b6c4123b03dd418a8514112aa543a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 1981989253}
-  - {fileID: 139280677}
-  - {fileID: 681473999}
-  - {fileID: 2108306830}
-  selectionImages:
-  - {fileID: 1981989254}
-  - {fileID: 139280678}
-  - {fileID: 681474000}
 --- !u!114 &1855412356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8959,12 +8952,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 1981989253}
   - {fileID: 139280677}
   - {fileID: 681473999}
   - {fileID: 2108306830}
   selectionImages:
-  - {fileID: 1981989254}
   - {fileID: 139280678}
   - {fileID: 681474000}
 --- !u!1 &1878498757
@@ -9372,7 +9363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1981989252
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9387,11 +9378,11 @@ RectTransform:
   - {fileID: 1245767692}
   - {fileID: 184072921}
   m_Father: {fileID: 605359923}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 39, y: -258}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981989253
@@ -9956,7 +9947,9 @@ MonoBehaviour:
   isOpen: 0
   closedPostion: {x: -78, y: 0, z: 0}
   openPosition: {x: 0, y: 0, z: 0}
+  hiddenPosition: {x: -156, y: 0, z: 0}
   transitionTime: 0.025
+  slideoutIndex: 0
 --- !u!1 &2028771630
 GameObject:
   m_ObjectHideFlags: 0
@@ -10416,11 +10409,11 @@ RectTransform:
   - {fileID: 1996272717}
   - {fileID: 2108497391}
   m_Father: {fileID: 605359923}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 39, y: -185}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2108306830
