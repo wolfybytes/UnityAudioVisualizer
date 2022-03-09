@@ -25,6 +25,9 @@ public class ToolControlButtons : MonoBehaviour
             ResetAll();
         });
         buttons[4].onClick.AddListener(delegate {
+            ToggleDance();
+        });
+        buttons[5].onClick.AddListener(delegate {
             ToggleCharacter();
         });
     }
@@ -56,6 +59,12 @@ public class ToolControlButtons : MonoBehaviour
     public void ResetAll()
     {
         SceneVisualsController.instance.current.ResetModel();
+        SceneVisualsController.instance.SetCurrentTool(3);
+    }
+
+    public void ToggleDance()
+    {
+        SceneVisualsController.instance.current.GetComponent<CharAnimCont>().AdvanceDance();
         SceneVisualsController.instance.SetCurrentTool(3);
     }
 
