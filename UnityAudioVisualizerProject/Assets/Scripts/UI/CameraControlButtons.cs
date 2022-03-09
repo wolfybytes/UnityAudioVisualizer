@@ -24,15 +24,12 @@ public class CameraControlButtons : MonoBehaviour
             ResetAll();
         });
 
-        orbit.SetCurrentMode(1);
+        orbit.SetCurrentMode(0);
     }
 
     public void UseRotation()
     {
-        if (orbit.controlType != CameraOrbit.ControlType.Rotation)
-            orbit.SetCurrentMode(0);
-        else
-            orbit.SetCurrentMode(2);
+        orbit.SetCurrentMode(0);
     }
 
     public void UseZoom()
@@ -40,7 +37,7 @@ public class CameraControlButtons : MonoBehaviour
         if (orbit.controlType != CameraOrbit.ControlType.Zoom)
             orbit.SetCurrentMode(1);
         else
-            orbit.SetCurrentMode(2);
+            orbit.SetCurrentMode(0);
     }
 
     public void ResetAll()

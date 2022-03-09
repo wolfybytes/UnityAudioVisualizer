@@ -5,10 +5,13 @@ using UnityEngine;
 public class SceneVisualsController : MonoBehaviour
 {
     public ObjectTools current;
+    public ObjectTools[] toolModels;
+    public int modelIndex = 0; 
     public static SceneVisualsController instance;
 
     public delegate void OnToolSelectionUpdate(int tool);
     public OnToolSelectionUpdate onToolSelectionUpdate;
+    public OnToolSelectionUpdate onModelChangeUpdate;
 
     private void Awake()
     {
@@ -16,6 +19,16 @@ public class SceneVisualsController : MonoBehaviour
             instance = this;
         else
             Destroy(this);
+
+        for (int i = 0; i < toolModels.Length; i++)
+            toolModels[i].gameObject.SetActive(false);
+        SetCurrentObject(0);
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            AdvanceCurrentToolModel();
     }
 
     public void SetCurrentTool(int tool)
@@ -25,9 +38,21 @@ public class SceneVisualsController : MonoBehaviour
         onToolSelectionUpdate?.Invoke(tool);
     }
 
-    public void SetCurrentObject(ObjectTools tool)
+    public void SetCurrentObject(int toolIndex)
     {
-        current = tool;
+        toolModels[modelIndex].gameObject.SetActive(false);
+
+        modelIndex = toolIndex;
+        current = toolModels[modelIndex];
+        toolModels[modelIndex].gameObject.SetActive(true);
+
+        onModelChangeUpdate?.Invoke(toolIndex);
+    }
+
+    public void AdvanceCurrentToolModel()
+    {
+        int nextIndex = (modelIndex + 1) % toolModels.Length;
+        SetCurrentObject(nextIndex);
     }
 
     public ObjectTools GetCurrentTool()
