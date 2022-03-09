@@ -10,10 +10,18 @@ public class EnvironmentControlButtons : MonoBehaviour
         buttons[0].onClick.AddListener(delegate {
             ToggleEnvironment();
         });
+        buttons[1].onClick.AddListener(delegate {
+            ToggleSunlight();
+        });
     }
 
     public void ToggleEnvironment()
     {
         SceneVisualsController.instance.AdvanceCurrentEnvironment();
+    }
+
+    public void ToggleSunlight()
+    {
+        SunlightController.instance.AdvancePreset();
     }
 }
