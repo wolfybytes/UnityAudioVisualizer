@@ -24,6 +24,9 @@ public class ToolControlButtons : MonoBehaviour
         buttons[3].onClick.AddListener(delegate {
             ResetAll();
         });
+        buttons[4].onClick.AddListener(delegate {
+            ToggleCharacter();
+        });
     }
 
     public void UseTransform()
@@ -53,6 +56,12 @@ public class ToolControlButtons : MonoBehaviour
     public void ResetAll()
     {
         SceneVisualsController.instance.current.ResetModel();
+        SceneVisualsController.instance.SetCurrentTool(3);
+    }
+
+    public void ToggleCharacter()
+    {
+        SceneVisualsController.instance.AdvanceCurrentToolModel();
         SceneVisualsController.instance.SetCurrentTool(3);
     }
 
