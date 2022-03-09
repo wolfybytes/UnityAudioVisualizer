@@ -48,6 +48,8 @@ public class CameraOrbit : MonoBehaviour
 
         startingDistance = _CameraDistance;
         startingRotation = new Vector2(_LocalRotation.x, _LocalRotation.y);
+
+        SceneVisualsController.instance.onModelChangeUpdate += UpdateTrackingTarget;
     }
 
 
@@ -120,5 +122,10 @@ public class CameraOrbit : MonoBehaviour
         controlType = (ControlType)mode;
 
         onModeSelectionUpdate?.Invoke(mode);
+    }
+
+    public void UpdateTrackingTarget(int index)
+    {
+        trackingTarget = SceneVisualsController.instance.toolModels[index].transform;
     }
 }
