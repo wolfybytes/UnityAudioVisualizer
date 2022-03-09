@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SceneVisualsController : MonoBehaviour
 {
+    private int modelIndex = 0;
+    private int environmentIndex = 0;
+
     public ObjectTools current;
     public ObjectTools[] toolModels;
-    public int modelIndex = 0; 
+    public GameObject[] environments;
+     
     public static SceneVisualsController instance;
 
-    public delegate void OnToolSelectionUpdate(int tool);
-    public OnToolSelectionUpdate onToolSelectionUpdate;
-    public OnToolSelectionUpdate onModelChangeUpdate;
+    public delegate void OnIntUpdate(int tool);
+    public OnIntUpdate onToolSelectionUpdate;
+    public OnIntUpdate onModelChangeUpdate;
 
     private void Awake()
     {
@@ -23,12 +27,18 @@ public class SceneVisualsController : MonoBehaviour
         for (int i = 0; i < toolModels.Length; i++)
             toolModels[i].gameObject.SetActive(false);
         SetCurrentObject(0);
+
+        for (int i = 0; i < environments.Length; i++)
+            environments[i].SetActive(false);
+        SetCurrentEnvironment(0);
     }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
             AdvanceCurrentToolModel();
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            AdvanceCurrentEnvironment();
     }
 
     public void SetCurrentTool(int tool)
@@ -53,6 +63,20 @@ public class SceneVisualsController : MonoBehaviour
     {
         int nextIndex = (modelIndex + 1) % toolModels.Length;
         SetCurrentObject(nextIndex);
+    }
+
+    public void SetCurrentEnvironment(int envIndex)
+    {
+        environments[environmentIndex].SetActive(false);
+
+        environmentIndex = envIndex;
+        environments[environmentIndex].SetActive(true);
+    }
+
+    public void AdvanceCurrentEnvironment()
+    {
+        int nextIndex = (environmentIndex + 1) % toolModels.Length;
+        SetCurrentEnvironment(nextIndex);
     }
 
     public ObjectTools GetCurrentTool()
