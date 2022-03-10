@@ -38,6 +38,11 @@ public class AudioControlButtons : MonoBehaviour
         UpdateTrackTitle(AutoPlaylistOrganizer.instance.currentTrackIndex);
     }
 
+    private void Update()
+    {
+        PlayPauseUpdateIcons();
+    }
+
     public void Rewind()
     {
         
