@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CameraOrbit : MonoBehaviour 
 {
+    private Vector2 currentMouse;
+    private Vector2 previousMouse;
     private Quaternion QT;
 
     private float startingDistance;
@@ -68,22 +70,35 @@ public class CameraOrbit : MonoBehaviour
             //Rotation of the Camera based on Mouse Coordinates
             if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
             {
-                if (controlType == ControlType.Rotation) {
-                    _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
-                    _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
+                if (currentMouse.x != previousMouse.x || currentMouse.y != previousMouse.y)
+                {
+                    if (controlType == ControlType.Rotation)
+                    {
+                        _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
+                        _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
 
-                    //Clamp the y Rotation to horizon and not flipping over at the top
-                    if (_LocalRotation.y < 0f)
-                        _LocalRotation.y = 0f;
-                    else if (_LocalRotation.y > 90f)
-                        _LocalRotation.y = 90f;
-                } else if (controlType == ControlType.Zoom) {
-                    float ScrollAmount = Input.GetAxis("Mouse Y") * zoomSensitivity;
-                    ScrollAmount *= (this._CameraDistance * 0.3f);
-                    this._CameraDistance += ScrollAmount * -1f;
-                    this._CameraDistance = Mathf.Clamp(this._CameraDistance, 1.5f, 100f);
+                        //Clamp the y Rotation to horizon and not flipping over at the top
+                        if (_LocalRotation.y < 0f)
+                            _LocalRotation.y = 0f;
+                        else if (_LocalRotation.y > 90f)
+                            _LocalRotation.y = 90f;
+                    }
+                    else if (controlType == ControlType.Zoom)
+                    {
+                        float ScrollAmount = Input.GetAxis("Mouse Y") * zoomSensitivity;
+                        ScrollAmount *= (this._CameraDistance * 0.3f);
+                        this._CameraDistance += ScrollAmount * -1f;
+                        this._CameraDistance = Mathf.Clamp(this._CameraDistance, 1.5f, 100f);
+                    }
                 }
+
+                previousMouse = currentMouse;
+                currentMouse = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
             }
+        }
+        else
+        {
+            previousMouse = currentMouse = Vector2.zero;
         }
 
         //Zooming Input from our Mouse Scroll Wheel
