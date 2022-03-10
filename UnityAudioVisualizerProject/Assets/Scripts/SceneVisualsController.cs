@@ -75,7 +75,7 @@ public class SceneVisualsController : MonoBehaviour
 
     public void AdvanceCurrentEnvironment()
     {
-        int nextIndex = (environmentIndex + 1) % toolModels.Length;
+        int nextIndex = (environmentIndex + 1) % environments.Length;
         SetCurrentEnvironment(nextIndex);
     }
 
