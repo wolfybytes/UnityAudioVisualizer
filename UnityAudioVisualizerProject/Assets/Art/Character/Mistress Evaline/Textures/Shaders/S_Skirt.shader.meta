@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 72102d8a1d599c140a9d5c59bffd651b
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _TextureSample0: {fileID: 2800000, guid: 5c03bc4b80b50384a9904843f3769487, type: 3}
+  - _SkirtTExture: {fileID: 2800000, guid: 48eb1f9360b1dc548868cc7b22965bb5, type: 3}
+  - _Alpha: {fileID: 2800000, guid: 00209fdd6ea1e8e49b8b77c10728d7bd, type: 3}
+  - _Sparkletexture: {fileID: 2800000, guid: f9b83e2436d56684c947a6e831313e2e, type: 3}
+  - _SparkleNoiseTexture: {fileID: 2800000, guid: f2f55128bec25a44691197609fb10177,
+      type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
